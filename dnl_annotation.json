@@ -1,0 +1,34 @@
+#%%
+import spacy
+from spacy import displacy
+nlp = spacy.load('en_core_web_trf')
+doc = nlp("Consolidated financial statements 4.")
+displacy.render(doc, style='ent')
+
+[
+  {
+    "document": "04 Passiva",
+    "tokens": [
+      {
+        "id":0,
+        "text": "04",
+        "start": 0,
+        "end": 7,
+        "entityLabel": "PAGE"
+      },
+      {
+        "id":1,
+        "text": "Passiva",
+        "start": 9,
+        "end": 26,
+        "entityLabel": "CHAPTER"
+      }],
+    "relations":[
+        { 
+            "head": 0,
+            "child": 1, 
+            "relationLabel": "CHAPTER_PAGE"
+        },
+    ]
+  }
+]
